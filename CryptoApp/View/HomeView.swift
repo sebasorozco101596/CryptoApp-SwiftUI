@@ -15,6 +15,7 @@ struct HomeView: View {
     @Namespace var animation
     @StateObject var appModel: AppViewModel = AppViewModel()
     
+    
     //MARK: - BODY
     
     var body: some View {
@@ -27,10 +28,11 @@ struct HomeView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                     
+                    
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Bitcoin")
+                        Text(coin.id.capitalized)
                             .font(.callout)
-                        Text("BTC")
+                        Text(coin.symbol.uppercased())
                             .font(.caption)
                             .foregroundColor(.gray)
                         
@@ -38,11 +40,27 @@ struct HomeView: View {
                 } //: HSTACK
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                }
-                
                 CustomControl(coins: coins)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(coin.current_price.convertToCurrency())
+                        .font(.largeTitle.bold())
+                    
+                    //MARK: - Profit//Loss
+                    Text("\(coin.price_change > 0 ? "+" : "")\(String(format:"%.2f",coin.price_change))")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(coin.price_change < 0 ? .white : .black)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background {
+                            Capsule()
+                                .fill(coin.price_change < 0 ? .red : Color("LightGreen"))
+                        }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                
                 
                 GraphView(coin: coin)
                 
@@ -60,7 +78,7 @@ struct HomeView: View {
     @ViewBuilder
     func GraphView(coin: CryptoModel) -> some View {
         GeometryReader { _ in
-            LineGraph(data: coin.last_7days_price.price)
+            LineGraph(data: coin.last_7days_price.price, profit: coin.price_change > 0)
         }
         .padding(.vertical, 30)
         .padding(.bottom, 20)
@@ -139,5 +157,15 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+//MARK: - Converting Double to Currency
+extension Double {
+    func convertToCurrency() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        return formatter.string(from: .init(value: self)) ?? ""
     }
 }
