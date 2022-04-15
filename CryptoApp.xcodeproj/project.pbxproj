@@ -11,6 +11,11 @@
 		6279206028091A3B009E660B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279205F28091A3B009E660B /* ContentView.swift */; };
 		6279206228091A3B009E660B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6279206128091A3B009E660B /* Assets.xcassets */; };
 		6279206528091A3B009E660B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6279206428091A3B009E660B /* Preview Assets.xcassets */; };
+		6279206E28091C15009E660B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279206D28091C15009E660B /* HomeView.swift */; };
+		62792070280922AE009E660B /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279206F280922AE009E660B /* LineGraph.swift */; };
+		6279207328092CC7009E660B /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279207228092CC7009E660B /* CryptoModel.swift */; };
+		6279207628092EA0009E660B /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279207528092EA0009E660B /* AppViewModel.swift */; };
+		62792079280939D0009E660B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 62792078280939D0009E660B /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,10 @@
 		6279205F28091A3B009E660B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6279206128091A3B009E660B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6279206428091A3B009E660B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6279206D28091C15009E660B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6279206F280922AE009E660B /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
+		6279207228092CC7009E660B /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
+		6279207528092EA0009E660B /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62792079280939D0009E660B /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +61,9 @@
 		6279205C28091A3B009E660B /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				6279207428092E8E009E660B /* ViewModel */,
+				6279206C28091BE5009E660B /* Model */,
+				6279206B28091BDD009E660B /* View */,
 				6279205D28091A3B009E660B /* CryptoAppApp.swift */,
 				6279205F28091A3B009E660B /* ContentView.swift */,
 				6279206128091A3B009E660B /* Assets.xcassets */,
@@ -65,6 +78,31 @@
 				6279206428091A3B009E660B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6279206B28091BDD009E660B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6279206D28091C15009E660B /* HomeView.swift */,
+				6279206F280922AE009E660B /* LineGraph.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6279206C28091BE5009E660B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6279207228092CC7009E660B /* CryptoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6279207428092E8E009E660B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6279207528092EA0009E660B /* AppViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +121,9 @@
 			dependencies = (
 			);
 			name = CryptoApp;
+			packageProductDependencies = (
+				62792078280939D0009E660B /* SDWebImageSwiftUI */,
+			);
 			productName = CryptoApp;
 			productReference = 6279205A28091A3B009E660B /* CryptoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 6279205128091A3B009E660B;
+			packageReferences = (
+				62792077280939D0009E660B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 6279205B28091A3B009E660B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62792070280922AE009E660B /* LineGraph.swift in Sources */,
+				6279206E28091C15009E660B /* HomeView.swift in Sources */,
+				6279207628092EA0009E660B /* AppViewModel.swift in Sources */,
 				6279206028091A3B009E660B /* ContentView.swift in Sources */,
 				6279205E28091A3B009E660B /* CryptoAppApp.swift in Sources */,
+				6279207328092CC7009E660B /* CryptoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62792077280939D0009E660B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62792078280939D0009E660B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62792077280939D0009E660B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6279205228091A3B009E660B /* Project object */;
 }
